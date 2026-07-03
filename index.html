@@ -1,0 +1,986 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ЧУДО | детская одежда для яркого детства</title>
+  <meta name="description" content="ЧУДО — яркие детские вещи и готовые образы. Подборки для девочек, мальчиков и по росту.">
+  <meta property="og:title" content="ЧУДО | детская одежда">
+  <meta property="og:description" content="Яркие детские вещи и готовые образы на каждый день.">
+  <meta property="og:image" content="images/hero-kids-clean.png">
+  <meta property="og:type" content="website">
+
+  <style>
+    /* =========================================================
+       ЧУДО — НАСТРОЙКИ ДИЗАЙНА
+       Здесь можно менять основные цвета, скругления, ширину сайта,
+       шрифты и тени. Это главный блок для быстрых правок.
+       ========================================================= */
+    :root {
+      --pink-main: #ff1495;        /* главный фирменный розовый фон */
+      --pink-main-2: #ff47ad;      /* второй розовый для градиента */
+      --pink-soft: #fff0f8;        /* очень светлый розовый */
+      --pink-card: #ffe3f1;        /* фон hero-карточки */
+      --pink-text: #ed2d8f;        /* розовый текст/акценты */
+      --yellow: #ffe151;           /* фирменный жёлтый */
+      --yellow-dark: #ffc928;      /* тёмный жёлтый для кнопок */
+      --blue-card: #72b8ea;        /* голубой для карточки мальчиков */
+      --violet-card: #b79bea;      /* сиреневый для карточки образов */
+      --text-main: #24171f;        /* основной текст */
+      --text-muted: #6f5f68;       /* второстепенный текст */
+      --white: #ffffff;
+
+      --site-width: 1120px;        /* общая ширина витрины */
+      --radius-xl: 30px;           /* крупные скругления */
+      --radius-lg: 22px;           /* средние скругления */
+      --radius-md: 16px;           /* малые скругления */
+
+      --shadow-strong: 0 24px 60px rgba(104, 11, 67, .24);
+      --shadow-soft: 0 12px 28px rgba(104, 11, 67, .12);
+
+      --font-main: Arial, Helvetica, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-main);
+      color: var(--text-main);
+      background:
+        radial-gradient(circle at 8% 12%, rgba(255,255,255,.28) 0 70px, transparent 72px),
+        radial-gradient(circle at 94% 7%, rgba(255,225,81,.30) 0 86px, transparent 88px),
+        linear-gradient(135deg, var(--pink-main) 0%, var(--pink-main-2) 46%, var(--pink-main) 100%);
+    }
+
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    /* =========================================================
+       ОБЩАЯ ВИТРИНА
+       Это основная светлая область сайта без фейковой рамки браузера.
+       ========================================================= */
+    .page {
+      width: min(var(--site-width), calc(100% - 34px));
+      margin: 34px auto;
+      border-radius: var(--radius-xl);
+      background: rgba(255,255,255,.96);
+      box-shadow: var(--shadow-strong);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* =========================================================
+       ШАПКА
+       Логотип в шапке сделан текстом: его легко поменять.
+       ========================================================= */
+    .header {
+      height: 86px;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 0 42px;
+      border-bottom: 1px solid rgba(237,45,143,.10);
+    }
+
+    .header-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--pink-text);
+      font-weight: 1000;
+      letter-spacing: -2px;
+      font-size: 40px;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .header-logo .heart {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--pink-text);
+      color: var(--white);
+      display: grid;
+      place-items: center;
+      font-size: 17px;
+      transform: rotate(-8deg);
+      margin-left: -2px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 26px;
+      flex: 1;
+    }
+
+    .nav a {
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+      color: #2c2328;
+      transition: color .18s ease, transform .18s ease;
+      white-space: nowrap;
+    }
+
+    .nav a:hover {
+      color: var(--pink-text);
+      transform: translateY(-1px);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .round-action {
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
+      background: var(--pink-soft);
+      border: 1px solid rgba(237,45,143,.14);
+      display: grid;
+      place-items: center;
+      text-decoration: none;
+      color: var(--pink-text);
+      font-size: 22px;
+      font-weight: 1000;
+      position: relative;
+    }
+
+    .round-action .badge {
+      position: absolute;
+      right: -7px;
+      top: -7px;
+      min-width: 22px;
+      height: 22px;
+      padding: 0 6px;
+      border-radius: 999px;
+      background: var(--pink-main);
+      color: #fff;
+      font-size: 12px;
+      display: grid;
+      place-items: center;
+      border: 2px solid #fff;
+    }
+
+    /* =========================================================
+       HERO-БЛОК
+       Картинка детей отдельным файлом.
+       Пушистое ЧУДО отдельным файлом.
+       Текст и кнопки редактируются здесь в HTML.
+       ========================================================= */
+    .hero-wrap {
+      padding: 20px 32px 12px;
+      background: linear-gradient(180deg, var(--pink-main) 0 36px, transparent 36px);
+    }
+
+    .hero {
+      min-height: 348px;
+      border-radius: 26px;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(255, 225, 241, .98) 0%, rgba(255, 225, 241, .96) 40%, rgba(255, 225, 241, .15) 68%),
+        url("images/hero-kids-clean.png") center / cover no-repeat;
+      position: relative;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.5);
+    }
+
+    /* Декоративные стикеры на hero: можно менять/удалять */
+    .hero::before {
+      content: "★";
+      position: absolute;
+      left: -28px;
+      top: 54px;
+      width: 82px;
+      height: 82px;
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+      color: var(--yellow);
+      font-size: 64px;
+      text-shadow: -3px 3px 0 #fff, 3px 3px 0 #fff, 3px -3px 0 #fff, -3px -3px 0 #fff;
+      transform: rotate(-12deg);
+      z-index: 2;
+    }
+
+    .hero::after {
+      content: "любовь\A в каждой\A детали";
+      white-space: pre;
+      position: absolute;
+      right: 64px;
+      top: 120px;
+      width: 126px;
+      height: 126px;
+      border-radius: 50%;
+      background: #fff7db;
+      color: #2c2328;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-size: 17px;
+      line-height: 1.08;
+      font-weight: 900;
+      transform: rotate(-7deg);
+      box-shadow: 0 10px 24px rgba(88, 39, 0, .12);
+    }
+
+    .hero-text {
+      width: 44%;
+      padding: 44px 0 38px 54px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .hero-logo-furry {
+      width: 268px;
+      margin-bottom: 14px;
+      filter: drop-shadow(0 9px 14px rgba(126, 75, 0, .12));
+    }
+
+    .hero-title {
+      margin: 0 0 16px;
+      color: #3b3136;
+      font-size: 29px;
+      line-height: 1.08;
+      font-weight: 1000;
+      letter-spacing: -.6px;
+    }
+
+    .hero-title .yellow-heart {
+      color: var(--yellow-dark);
+      display: inline-block;
+      transform: rotate(12deg);
+      margin-left: 4px;
+    }
+
+    .hero-desc {
+      margin: 0 0 25px;
+      color: #5b4d55;
+      font-size: 15px;
+      line-height: 1.48;
+      font-weight: 650;
+      max-width: 360px;
+    }
+
+    .button-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* КНОПКИ: текст можно менять в HTML, внешний вид — здесь */
+    .btn {
+      min-height: 52px;
+      border-radius: 999px;
+      padding: 0 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 1000;
+      font-size: 15px;
+      transition: transform .18s ease, box-shadow .18s ease;
+      border: 0;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 13px 24px rgba(114, 9, 70, .18);
+    }
+
+    .btn-primary {
+      color: #fff;
+      background: linear-gradient(180deg, #ff54b7, var(--pink-text));
+      box-shadow: 0 10px 22px rgba(237,45,143,.25);
+    }
+
+    .btn-yellow {
+      color: var(--pink-text);
+      background: linear-gradient(180deg, #ffe867, var(--yellow-dark));
+      box-shadow: 0 10px 22px rgba(186, 121, 0, .17);
+    }
+
+    .btn-outline {
+      color: var(--pink-text);
+      background: rgba(255,255,255,.72);
+      border: 2px solid rgba(237,45,143,.55);
+      box-shadow: 0 10px 20px rgba(237,45,143,.09);
+    }
+
+    .btn-icon {
+      width: 25px;
+      height: 25px;
+      border-radius: 9px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,.22);
+      font-size: 13px;
+      font-weight: 1000;
+    }
+
+    .btn-yellow .btn-icon {
+      background: transparent;
+      color: var(--pink-text);
+      font-size: 17px;
+    }
+
+    /* =========================================================
+       БЛОК ПОДБОРКИ
+       Здесь 3 основные карточки: девочки, мальчики, образы.
+       ========================================================= */
+    .showcase {
+      margin: 0 32px 12px;
+      padding: 24px 24px 22px;
+      background: var(--white);
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(104, 11, 67, .10);
+      position: relative;
+    }
+
+    .section-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 17px;
+    }
+
+    .section-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0;
+      font-size: 25px;
+      line-height: 1;
+      font-weight: 1000;
+      letter-spacing: -.5px;
+    }
+
+    .section-title .star {
+      color: var(--pink-text);
+      font-size: 28px;
+      text-shadow: 1px 1px 0 var(--yellow);
+    }
+
+    .see-all {
+      color: var(--pink-text);
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 14px;
+    }
+
+    .collections {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .collection-card {
+      height: 138px;
+      border-radius: 18px;
+      overflow: hidden;
+      text-decoration: none;
+      position: relative;
+      padding: 26px 28px;
+      color: #fff;
+      isolation: isolate;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.35);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .collection-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 28px rgba(104, 11, 67, .16);
+    }
+
+    .collection-card h3 {
+      margin: 0 0 6px;
+      font-size: 27px;
+      line-height: .98;
+      letter-spacing: -.5px;
+      font-weight: 1000;
+      text-shadow: 0 2px 0 rgba(0,0,0,.04);
+    }
+
+    .collection-card p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.25;
+      font-weight: 800;
+      opacity: .92;
+      max-width: 180px;
+    }
+
+    .collection-card .arrow {
+      position: absolute;
+      right: 17px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--pink-text);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 23px;
+      font-weight: 1000;
+      box-shadow: 0 8px 20px rgba(104, 11, 67, .20);
+      z-index: 3;
+    }
+
+    .card-girls {
+      background:
+        linear-gradient(90deg, rgba(255,68,170,.95) 0 46%, rgba(255,68,170,.18) 65%, rgba(255,68,170,0) 100%),
+        url("images/cover-girls.png") center / cover no-repeat,
+        linear-gradient(135deg, #ff54b7, #ff85ca);
+    }
+
+    .card-boys {
+      background:
+        linear-gradient(90deg, rgba(91,170,226,.95) 0 46%, rgba(91,170,226,.12) 65%, rgba(91,170,226,0) 100%),
+        url("images/cover-boys.png") center / cover no-repeat,
+        linear-gradient(135deg, #61b5ed, #9dd6ff);
+    }
+
+    .card-outfits {
+      background:
+        linear-gradient(90deg, rgba(171,137,230,.95) 0 46%, rgba(171,137,230,.12) 65%, rgba(171,137,230,0) 100%),
+        url("images/cover-outfits.png") center / cover no-repeat,
+        linear-gradient(135deg, #a98ae6, #d7c6ff);
+    }
+
+    /* Если картинки пока не загрузились — карточки остаются красивыми за счёт градиентов */
+    .card-girls::after,
+    .card-boys::after,
+    .card-outfits::after {
+      content: "♡";
+      position: absolute;
+      right: 70px;
+      bottom: 8px;
+      color: rgba(255,255,255,.38);
+      font-size: 58px;
+      font-weight: 1000;
+      transform: rotate(10deg);
+      z-index: -1;
+    }
+
+    /* =========================================================
+       СЕРВИСНЫЕ ПРЕИМУЩЕСТВА
+       Иконки текстовые, легко заменить.
+       ========================================================= */
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .benefit {
+      min-height: 86px;
+      border-radius: 18px;
+      background: #fff;
+      border: 1px solid rgba(237,45,143,.10);
+      box-shadow: 0 8px 20px rgba(104, 11, 67, .07);
+      padding: 15px 14px;
+      display: grid;
+      grid-template-columns: 50px 1fr;
+      gap: 12px;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .benefit-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, #ff72c4, var(--pink-text));
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      font-weight: 1000;
+      box-shadow: 0 8px 18px rgba(237,45,143,.22);
+    }
+
+    .benefit strong {
+      display: block;
+      font-size: 14px;
+      line-height: 1.1;
+      font-weight: 1000;
+      margin-bottom: 4px;
+    }
+
+    .benefit span {
+      display: block;
+      color: var(--text-muted);
+      font-size: 12px;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    /* =========================================================
+       ПОДБОР ПО РОСТУ
+       Отдельный блок ниже подборок. Здесь нет дублирования.
+       ========================================================= */
+    .growth {
+      margin: 0 32px 12px;
+      padding: 22px 28px;
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 8% 20%, rgba(255,225,81,.45) 0 55px, transparent 56px),
+        radial-gradient(circle at 92% 80%, rgba(255,255,255,.22) 0 70px, transparent 72px),
+        linear-gradient(135deg, var(--pink-main), #ff4bb0);
+      color: #fff;
+      box-shadow: 0 10px 30px rgba(104, 11, 67, .12);
+    }
+
+    .growth h2 {
+      margin: 0 0 16px;
+      font-size: 22px;
+      line-height: 1;
+      text-align: center;
+      font-weight: 1000;
+    }
+
+    .growth-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .growth-link {
+      min-height: 54px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      text-decoration: none;
+      background: rgba(255,255,255,.94);
+      color: var(--pink-text);
+      font-size: 20px;
+      font-weight: 1000;
+      box-shadow: 0 10px 22px rgba(104, 11, 67, .13);
+      transition: transform .18s ease;
+    }
+
+    .growth-link:hover { transform: translateY(-2px); }
+
+    /* =========================================================
+       КАК ЗАКАЗАТЬ
+       ========================================================= */
+    .order {
+      margin: 0 32px 16px;
+      background: var(--white);
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(104, 11, 67, .10);
+      padding: 26px 30px;
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 24px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .order::after {
+      content: "♡";
+      position: absolute;
+      right: 18px;
+      bottom: -22px;
+      color: rgba(237,45,143,.28);
+      font-size: 78px;
+      font-weight: 1000;
+      transform: rotate(16deg);
+    }
+
+    .order-title h2 {
+      margin: 0;
+      font-size: 27px;
+      line-height: 1;
+      font-weight: 1000;
+    }
+
+    .order-title .underline {
+      width: 100px;
+      height: 9px;
+      margin-top: 10px;
+      background: var(--yellow);
+      border-radius: 999px;
+      transform: rotate(-4deg);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .step {
+      min-height: 100px;
+      border-radius: 18px;
+      background: var(--pink-soft);
+      padding: 17px 16px 15px 70px;
+      position: relative;
+    }
+
+    .step-number {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: var(--yellow);
+      color: #2c2328;
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      font-weight: 1000;
+    }
+
+    .step-icon {
+      position: absolute;
+      left: 14px;
+      top: 44px;
+      width: 42px;
+      height: 42px;
+      border-radius: 15px;
+      background: linear-gradient(180deg, #ff72c4, var(--pink-text));
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      font-weight: 1000;
+    }
+
+    .step strong {
+      display: block;
+      font-size: 14px;
+      line-height: 1.15;
+      font-weight: 1000;
+      margin-bottom: 5px;
+    }
+
+    .step span {
+      display: block;
+      color: var(--text-muted);
+      font-size: 12px;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    /* =========================================================
+       ФУТЕР
+       ========================================================= */
+    .footer {
+      min-height: 58px;
+      padding: 0 42px;
+      background: rgba(255,255,255,.86);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      color: #8a7681;
+      font-size: 13px;
+      font-weight: 700;
+      border-top: 1px solid rgba(237,45,143,.08);
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .footer a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .footer a:hover { color: var(--pink-text); }
+
+    /* =========================================================
+       АДАПТАЦИЯ
+       ========================================================= */
+    @media (max-width: 980px) {
+      .page { margin: 18px auto; }
+      .header { padding: 0 22px; }
+      .nav { gap: 14px; }
+      .hero-wrap, .showcase, .growth, .order { margin-left: 18px; margin-right: 18px; }
+      .hero-wrap { padding-left: 18px; padding-right: 18px; }
+      .hero-text { width: 50%; padding-left: 32px; }
+      .hero-logo-furry { width: 220px; }
+      .benefits { grid-template-columns: repeat(2, 1fr); }
+      .order { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 760px) {
+      body { background: var(--pink-main); }
+      .page {
+        width: min(100% - 18px, 520px);
+        margin: 9px auto;
+        border-radius: 24px;
+      }
+
+      .header {
+        height: auto;
+        padding: 20px 18px 16px;
+        flex-wrap: wrap;
+      }
+
+      .header-logo { font-size: 33px; }
+      .nav {
+        order: 3;
+        width: 100%;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+
+      .nav a { flex: 0 0 auto; }
+
+      .hero {
+        min-height: 650px;
+        background:
+          linear-gradient(180deg, rgba(255,225,241,.98) 0%, rgba(255,225,241,.98) 48%, rgba(255,225,241,0) 66%),
+          url("images/hero-kids-clean.png") right bottom / auto 100% no-repeat;
+      }
+
+      .hero::before, .hero::after { display: none; }
+
+      .hero-text {
+        width: 100%;
+        padding: 32px 24px 0;
+      }
+
+      .hero-logo-furry { width: 215px; }
+      .hero-title { font-size: 26px; }
+      .hero-desc { max-width: 310px; font-size: 15px; }
+      .button-row { align-items: flex-start; flex-direction: column; }
+      .btn { min-height: 48px; font-size: 14px; padding: 0 18px; }
+
+      .section-top { align-items: flex-start; flex-direction: column; }
+      .collections, .growth-list, .steps { grid-template-columns: 1fr; }
+      .collection-card { height: 128px; }
+      .benefits { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; align-items: flex-start; padding: 18px; }
+      .footer-links { flex-wrap: wrap; gap: 14px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- =======================================================
+         ШАПКА САЙТА
+         Меню и ссылки можно менять прямо здесь.
+         ======================================================= -->
+    <header class="header">
+      <a class="header-logo" href="#">
+        <span>чуд</span><span class="heart">♥</span>
+      </a>
+
+      <nav class="nav" aria-label="Главное меню">
+        <a href="#top">Главная</a>
+        <a href="https://vk.com/market-197611938?section=album_1&screen=group&traffic_source=link&ref_source=community_goods" target="_blank" rel="noopener">Девочки</a>
+        <a href="https://vk.com/market-197611938?section=album_2&screen=group&traffic_source=link&ref_source=community_goods" target="_blank" rel="noopener">Мальчики</a>
+        <a href="https://vk.com/@chudo_tmn72-navigaciya-chudo" target="_blank" rel="noopener">Образы</a>
+        <a href="https://vk.com/@chudo_tmn72-dostavka-chudo" target="_blank" rel="noopener">Доставка и оплата</a>
+        <a href="https://vk.com/@chudo_tmn72-chastye-voprosy-chudo" target="_blank" rel="noopener">Отзывы</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="round-action" href="https://vk.com/chudo_tmn72" target="_blank" rel="noopener" aria-label="VK">♡</a>
+        <a class="round-action" href="https://vk.com/cart/197611938?ref_screen=market&ref_source=community_goods" target="_blank" rel="noopener" aria-label="Корзина">
+          ♧
+          <span class="badge">2</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- =======================================================
+         ГЛАВНЫЙ БАННЕР
+         Пушистое ЧУДО — картинка.
+         Остальные фразы и кнопки можно менять в коде.
+         ======================================================= -->
+    <main id="top">
+      <section class="hero-wrap">
+        <div class="hero">
+          <div class="hero-text">
+
+            <!-- МЕНЯТЬ ПУШИСТЫЙ ЛОГОТИП: images/logo-furry-chudo.png -->
+            <img class="hero-logo-furry" src="images/logo-furry-chudo.png" alt="ЧУДО">
+
+            <!-- МЕНЯТЬ ЗАГОЛОВОК HERO ЗДЕСЬ -->
+            <h1 class="hero-title">для яркого детства <span class="yellow-heart">♥</span></h1>
+
+            <!-- МЕНЯТЬ ОПИСАНИЕ HERO ЗДЕСЬ -->
+            <p class="hero-desc">
+              Стильная, удобная и качественная одежда для детей.
+              Выбираем лучшее — чтобы каждый день был особенным.
+            </p>
+
+            <!-- МЕНЯТЬ КНОПКИ HERO ЗДЕСЬ -->
+            <div class="button-row">
+              <a class="btn btn-primary" href="https://vk.com/@chudo_tmn72-navigaciya-chudo" target="_blank" rel="noopener">
+                <span class="btn-icon">vk</span>
+                <span>Смотреть товары VK</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           ПОДБОРКИ
+           3 главные карточки. Картинки лежат в images.
+           Если картинки нет — останется красивый градиент.
+           ===================================================== -->
+      <section class="showcase" aria-label="Подборки">
+        <div class="section-top">
+          <h2 class="section-title"><span class="star">✬</span> Подборки</h2>
+          <a class="see-all" href="https://vk.com/@chudo_tmn72-navigaciya-chudo" target="_blank" rel="noopener">Смотреть все →</a>
+        </div>
+
+        <div class="collections">
+          <a class="collection-card card-girls" href="https://vk.com/market-197611938?section=album_1&screen=group&traffic_source=link&ref_source=community_goods" target="_blank" rel="noopener">
+            <h3>чудо<br>девочки</h3>
+            <p>яркие вещи для девочек</p>
+            <span class="arrow">→</span>
+          </a>
+
+          <a class="collection-card card-boys" href="https://vk.com/market-197611938?section=album_2&screen=group&traffic_source=link&ref_source=community_goods" target="_blank" rel="noopener">
+            <h3>чудо<br>мальчики</h3>
+            <p>стильные вещи для мальчиков</p>
+            <span class="arrow">→</span>
+          </a>
+
+          <a class="collection-card card-outfits" href="https://vk.com/@chudo_tmn72-navigaciya-chudo" target="_blank" rel="noopener">
+            <h3>чудо<br>образы</h3>
+            <p>готовые сочетания</p>
+            <span class="arrow">→</span>
+          </a>
+        </div>
+
+        <!-- ===================================================
+             СЕРВИСНЫЕ ПРЕИМУЩЕСТВА
+             =================================================== -->
+        <div class="benefits">
+          <a class="benefit" href="https://vk.com/@chudo_tmn72-kak-vybrat-razmer-chudo" target="_blank" rel="noopener">
+            <div class="benefit-icon">⌕</div>
+            <div>
+              <strong>Точные замеры</strong>
+              <span>Указываем реальные замеры каждого изделия</span>
+            </div>
+          </a>
+
+          <a class="benefit" href="https://vk.com/@chudo_tmn72-chastye-voprosy-chudo" target="_blank" rel="noopener">
+            <div class="benefit-icon">◉</div>
+            <div>
+              <strong>Доп. фото/видео</strong>
+              <span>Предоставим дополнительные фото и видео по запросу</span>
+            </div>
+          </a>
+
+          <a class="benefit" href="https://vk.com/@chudo_tmn72-kak-vybrat-razmer-chudo" target="_blank" rel="noopener">
+            <div class="benefit-icon">♕</div>
+            <div>
+              <strong>Помощь с размером</strong>
+              <span>Подскажем с выбором размера без ошибок</span>
+            </div>
+          </a>
+
+          <a class="benefit" href="https://vk.com/@chudo_tmn72-dostavka-chudo" target="_blank" rel="noopener">
+            <div class="benefit-icon">⌖</div>
+            <div>
+              <strong>В наличии в Тюмени</strong>
+              <span>Самовывоз и быстрая отправка по России</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           ПОДБОР ПО РОСТУ
+           Отдельный блок, чтобы не дублировать его в подборках.
+           ===================================================== -->
+      <section class="growth" id="growth" aria-label="Подбор по росту">
+        <h2>Подбор по росту</h2>
+        <div class="growth-list">
+          <a class="growth-link" href="https://vk.com/market-197611938?section=album_14&screen=group&traffic_source=link&ref_source=community_goods" target="_blank" rel="noopener">82–92</a>
+          <a class="growth-link" href="https://vk.com/market-197611938?section=album_15&screen=group&traffic_source=link&ref_source=community_goods" target="_blank" rel="noopener">92–104</a>
+          <a class="growth-link" href="https://vk.com/market-197611938?section=album_17" target="_blank" rel="noopener">104–110</a>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           КАК ЗАКАЗАТЬ
+           ===================================================== -->
+      <section class="order" aria-label="Как заказать">
+        <div class="order-title">
+          <h2>Как заказать</h2>
+          <div class="underline"></div>
+        </div>
+
+        <div class="steps">
+          <a class="step" href="https://vk.com/@chudo_tmn72-navigaciya-chudo" target="_blank" rel="noopener">
+            <span class="step-number">1</span>
+            <span class="step-icon">vk</span>
+            <strong>Перейдите в наш магазин VK</strong>
+            <span>Нажмите на кнопку и откройте витрину товаров</span>
+          </a>
+
+          <a class="step" href="https://vk.com/@chudo_tmn72-kak-oformit-zakaz-chudo" target="_blank" rel="noopener">
+            <span class="step-number">2</span>
+            <span class="step-icon">▢</span>
+            <strong>Выберите и оформите заказ</strong>
+            <span>Добавьте в корзину и оформите заказ в VK</span>
+          </a>
+
+          <a class="step" href="https://vk.com/@chudo_tmn72-dostavka-chudo" target="_blank" rel="noopener">
+            <span class="step-number">3</span>
+            <span class="step-icon">◇</span>
+            <strong>Мы свяжемся и отправим</strong>
+            <span>Уточним детали и быстро отправим ваш заказ</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- =======================================================
+         ФУТЕР
+         ======================================================= -->
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="https://vk.com/chudo_tmn72" target="_blank" rel="noopener">VK</a>
+        <span>ЧУДО — детская одежда</span>
+      </div>
+
+      <div class="footer-links">
+        <span>© ЧУДО, 2026</span>
+        <a href="https://vk.com/@chudo_tmn72-dostavka-chudo" target="_blank" rel="noopener">Доставка и оплата</a>
+        <a href="https://vk.com/@chudo_tmn72-chastye-voprosy-chudo" target="_blank" rel="noopener">FAQ</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
